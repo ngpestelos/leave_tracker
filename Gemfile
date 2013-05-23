@@ -31,7 +31,7 @@ gem "bootstrap-sass", "~> 2.3.1.0"
 
 gem 'fullcalendar-rails'
 
-gem 'devise'
+gem 'devise', '3.0.0.rc'
 
 
 group :development, :test do
