@@ -33,6 +33,8 @@ gem 'fullcalendar-rails'
 
 gem 'devise', '3.0.0.rc'
 
+gem "haml", "~> 4.0.3"
+
 
 group :development, :test do
   gem "rspec", "~> 2.13.0"
