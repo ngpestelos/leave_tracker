@@ -29,12 +29,9 @@ gem 'jbuilder', '~> 1.0.1'
 
 gem "bootstrap-sass", "~> 2.3.1.0"
 
-gem 'fullcalendar-rails'
-
 gem 'devise', '3.0.0.rc'
 
 gem "haml", "~> 4.0.3"
-
 
 group :development, :test do
   gem "rspec", "~> 2.13.0"
