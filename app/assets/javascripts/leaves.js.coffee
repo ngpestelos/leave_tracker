@@ -4,5 +4,7 @@
 
 $(document).ready ->
   $('#calendar').fullCalendar({
-    events:[{title  : 'event1', start  : '2010-01-01'}]
+    events:[{title  : 'event1', start  : '2010-01-01'}],
+    dayClick: (date) ->
+      console.log(date)
   })
