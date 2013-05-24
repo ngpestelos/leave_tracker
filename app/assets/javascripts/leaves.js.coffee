@@ -6,5 +6,5 @@ $(document).ready ->
   $('#calendar').fullCalendar({
     events:[{title  : 'event1', start  : '2010-01-01'}],
     dayClick: (date) ->
-      console.log(date)
+      $.post('/leaves/', {leave_type: 1, date: date})
   })
