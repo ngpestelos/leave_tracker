@@ -14,14 +14,19 @@ class LeavesController < ApplicationController
   end
 
   def destroy
-    Leave.destroy(params[:id])
+    leave = current_user.leaves.find_by_id(params[:id])
+    unless leave.nil?
+      current_user.leaves.destroy(params[:id])
+    end
     redirect_to leaves_path
   end
 
   def update
-    leave = Leave.find_by_id(params[:id]) 
-    leave.update_attributes(:leave_type => params[:leave_type],
-                           :date => params[:date]) 
+    leave = current_user.leaves.find_by_id(params[:id]) 
+    unless leave.nil?
+      leave.update_attributes(:leave_type => params[:leave_type],
+                              :date => params[:date]) 
+    end
     redirect_to leaves_path
   end
 

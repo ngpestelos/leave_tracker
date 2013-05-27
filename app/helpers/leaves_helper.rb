@@ -8,7 +8,8 @@ module LeavesHelper
           :start => leave[:date],
           :title => "#{leave.user.email} -- #{leave[:leave_type]}",
           :leave_type => leave[:leave_type],
-          :id => leave[:id]
+          :id => leave[:id],
+          :allow_click => leave.user.id == current_user.id ? true : false
         } if leave.is_a? Leave
         formatted_leaves << formatted_leave
       end
