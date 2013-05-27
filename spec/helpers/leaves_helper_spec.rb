@@ -5,9 +5,9 @@ describe LeavesHelper do
     context 'when an array of leaves are sent' do
       it 'formats the leaves' do
         time = Time.now
-        leave = Leave.create(:date => time)
+        leave = Leave.create(:date => time, :leave_type => 1, :id => 1)
         formatted_leaves = format_for_calendar([leave])
-        formatted_leaves.should eq([{:start => time, :title => 'Test title'}])
+        formatted_leaves.should eq([{:start => time, :title => 'Test title', :leave_type => 1, :id => 1}])
       end
     end
     context 'when nil is sent' do
