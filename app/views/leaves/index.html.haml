@@ -3,6 +3,11 @@
     = text_field_tag "date"
     = select_tag(:leave_type, options_for_select([['Type 1', 1], ['Type 2', 2]]))
     = submit_tag "Save" 
+#edit_leave{:style => "display:none;"}
+  = form_tag("", :id => "edit_leave_form", :method => "put") do
+    = text_field_tag "date"
+    = select_tag(:leave_type, options_for_select([['Type 1', 1], ['Type 2', 2]]), :id => 'leave_type')
+    = submit_tag "Save"
 #remove_leave{:style => "display:none;"} 
   = form_tag("", :id => "remove_leave_form", :method => "delete") do
     = submit_tag "Delete"

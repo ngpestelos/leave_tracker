@@ -10,6 +10,7 @@ LeaveTracker::Application.routes.draw do
     get 'leaves' => 'leaves#index'
     post 'leaves' => 'leaves#create'
     delete 'leaves/:id' => 'leaves#destroy'
+    put 'leaves/:id' => 'leaves#update'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -17,4 +17,12 @@ class LeavesController < ApplicationController
     Leave.destroy(params[:id])
     redirect_to leaves_path
   end
+
+  def update
+    leave = Leave.find_by_id(params[:id]) 
+    leave.update_attributes(:leave_type => params[:leave_type],
+                           :date => params[:date]) 
+    redirect_to leaves_path
+  end
+
 end
