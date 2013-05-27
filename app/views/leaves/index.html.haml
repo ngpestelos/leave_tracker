@@ -1,3 +1,5 @@
+#sign_out
+  = button_to 'Sign out', destroy_user_session_path, :method => :delete
 #new_leave{:style => "display:none;"}
   = form_tag(leaves_path, :method => "post") do
     = text_field_tag "date"

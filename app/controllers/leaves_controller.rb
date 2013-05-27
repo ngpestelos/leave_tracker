@@ -2,8 +2,12 @@ class LeavesController < ApplicationController
   include LeavesHelper
 
   def index
-    @leaves = Leave.all
-    @leaves = format_for_calendar(@leaves).to_json
+    if user_signed_in?
+      @leaves = Leave.all
+      @leaves = format_for_calendar(@leaves).to_json
+    else
+      redirect_to new_user_session_path 
+    end
   end
   
   def create
