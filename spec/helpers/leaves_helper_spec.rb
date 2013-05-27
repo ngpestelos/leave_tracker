@@ -11,5 +11,13 @@ require 'spec_helper'
 #   end
 # end
 describe LeavesHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#format_for_calendar' do
+    context 'when an array of leaves are sent' do
+      it 'formats the leaves' do
+        time = Time.now
+        formatted_leaves = format_for_calendar([{:date => time}])
+        formatted_leaves.should eq([{:start => time, :title => 'Test title'}])
+      end
+    end
+  end
 end
