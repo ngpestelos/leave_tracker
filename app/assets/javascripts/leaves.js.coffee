@@ -20,4 +20,8 @@ window.launch_calendar = (events) ->
         $("#edit_leave #date").val(event.start)
         $("#edit_leave #leave_type").val(event.leave_type)
         $("#remove_leave_form").attr("action", leave_path)
+      else
+        $("#new_leave").hide()
+        $("#edit_leave").hide()
+        $("#remove_leave").hide()
   })
