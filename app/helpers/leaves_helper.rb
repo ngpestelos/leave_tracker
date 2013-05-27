@@ -6,7 +6,7 @@ module LeavesHelper
       leaves.each do |leave|
         formatted_leave = {
           :start => leave[:date],
-          :title => 'Test title',
+          :title => "#{current_user.email} -- #{leave[:leave_type]}",
           :leave_type => leave[:leave_type],
           :id => leave[:id]
         } if leave.is_a? Leave
