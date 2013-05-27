@@ -6,14 +6,11 @@ window.launch_calendar = (events) ->
   $('#calendar').fullCalendar({
     events: events,
     dayClick: (date) ->
-      $.ajax(
-        {
-          type: "POST",
-        url: "/leaves/",
-        data: {leave_type: 1, date: date},
-        success: (data) ->
-          $('#calendar').fullCalendar('addEventSource', data)
-          $('#calendar').fullCalendar('rerenderEvents')
-        }
-      )
+      $("#remove_leave").hide()
+      $("#new_leave").show()
+      $("#date").val(date)
+    eventClick: (event) ->
+      $("#new_leave").hide()
+      $("#remove_leave").show()
+      $("#remove_leave_form").attr("action", "/leaves/#{event.id}")
   })

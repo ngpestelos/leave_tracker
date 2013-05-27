@@ -10,6 +10,11 @@ class LeavesController < ApplicationController
     new_leave = Leave.new(:leave_type => params[:leave_type],
                          :date => params[:date])
     new_leave.save
-    render :json => format_for_calendar([new_leave])
+    redirect_to leaves_path
+  end
+
+  def destroy
+    Leave.destroy(params[:id])
+    redirect_to leaves_path
   end
 end
