@@ -2,9 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+window.launch_calendar = (events) ->
   $('#calendar').fullCalendar({
-    events:[{title  : 'event1', start  : '2013-05-24'}],
+    events: events,
     dayClick: (date) ->
       $.ajax(
         {

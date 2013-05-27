@@ -4,7 +4,8 @@ class LeavesController < ApplicationController
   respond_to :html, :json
 
   def show
-    respond_with Leave.find(:all).to_json
+    @leaves = Leave.all
+    @leaves = format_for_calendar(@leaves).to_json
   end
   
   def create

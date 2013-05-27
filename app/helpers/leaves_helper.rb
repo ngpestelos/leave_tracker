@@ -4,8 +4,8 @@ module LeavesHelper
     formatted_leaves = []
     leaves.each do |leave|
       formatted_leave = {
-        :start => leave.date,
-        :title => 'Test title',
+        :start => leave[:date],
+        :title => 'Test title'
       }
       formatted_leaves << formatted_leave
     end
