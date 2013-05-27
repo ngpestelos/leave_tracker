@@ -1,9 +1,7 @@
 class LeavesController < ApplicationController
   include LeavesHelper
 
-  respond_to :html, :json
-
-  def show
+  def index
     @leaves = Leave.all
     @leaves = format_for_calendar(@leaves).to_json
   end

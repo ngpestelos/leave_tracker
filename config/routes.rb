@@ -7,7 +7,7 @@ LeaveTracker::Application.routes.draw do
     root 'welcome#index'
   
   # Leaves Routes
-    get 'leaves' => 'leaves#show'
+    get 'leaves' => 'leaves#index'
     post 'leaves' => 'leaves#create'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,11 @@
+#new_leave
+  = form_tag(leaves_path, :method => "post") do
+    = text_field_tag "date"
+    = select_tag(:leave_type, options_for_select([['Type 1', 1], ['Type 2', 2]]))
+    = submit_tag "Save" 
+#remove_leave 
+  = form_tag("", :id => "remove_leave_form", :method => "delete") do
+    = submit_tag "Delete"
+#calendar
+:javascript
+  launch_calendar(#{@leaves})
