@@ -7,7 +7,7 @@ class LeavesController < ApplicationController
   end
   
   def create
-    new_leave = Leave.new(:leave_type => params[:leave_type],
+    new_leave = current_user.leaves.create(:leave_type => params[:leave_type],
                          :date => params[:date])
     new_leave.save
     redirect_to leaves_path

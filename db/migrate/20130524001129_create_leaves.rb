@@ -4,6 +4,7 @@ class CreateLeaves < ActiveRecord::Migration
       t.date :date
       t.integer :leave_type
       t.timestamps
+      t.integer :user_id
     end
   end
 end
