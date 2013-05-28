@@ -3,12 +3,12 @@
 #new_leave{:style => "display:none;"}
   = form_tag(leaves_path, :method => "post") do
     = text_field_tag "date"
-    = select_tag(:leave_type, options_for_select([['Type 1', 1], ['Type 2', 2]]))
+    = select_tag(:leave_type, options_for_select(@leave_types))
     = submit_tag "Save" 
 #edit_leave{:style => "display:none;"}
   = form_tag("", :id => "edit_leave_form", :method => "put") do
     = text_field_tag "date"
-    = select_tag(:leave_type, options_for_select([['Type 1', 1], ['Type 2', 2]]), :id => 'leave_type')
+    = select_tag(:leave_type, options_for_select(@leave_types), :id => 'leave_type')
     = submit_tag "Save"
 #remove_leave{:style => "display:none;"} 
   = form_tag("", :id => "remove_leave_form", :method => "delete") do

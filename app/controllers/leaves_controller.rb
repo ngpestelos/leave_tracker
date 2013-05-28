@@ -5,13 +5,14 @@ class LeavesController < ApplicationController
     if user_signed_in?
       @leaves = Leave.all
       @leaves = format_for_calendar(@leaves).to_json
+      @leave_types = get_leave_types 
     else
       redirect_to new_user_session_path 
     end
   end
   
   def create
-    new_leave = current_user.leaves.create(:leave_type => params[:leave_type],
+    new_leave = current_user.leaves.create(:leave_type_id => params[:leave_type],
                          :date => params[:date])
     new_leave.save
     redirect_to leaves_path
