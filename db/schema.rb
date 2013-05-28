@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130528000633) do
+ActiveRecord::Schema.define(version: 20130528002755) do
 
   create_table "leave_types", force: true do |t|
     t.string   "description"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20130528000633) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "leave_type_id"
+  end
+
+  create_table "number_of_leaves_per_types", force: true do |t|
+    t.integer  "leave_type_id"
+    t.integer  "user_id"
+    t.integer  "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
