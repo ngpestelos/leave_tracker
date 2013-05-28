@@ -30,7 +30,7 @@ class LeavesController < ApplicationController
   def update
     leave = current_user.leaves.find_by_id(params[:id]) 
     unless leave.nil?
-      leave.update_attributes(:leave_type => params[:leave_type],
+      leave.update_attributes(:leave_type_id => params[:leave_type],
                               :date => params[:date]) 
     end
     redirect_to leaves_path
