@@ -5,3 +5,12 @@
 select#leave_type {
   width: 100%
 }
+#remove_leave_form {
+  height: 0px;
+  #leave_delete_button {
+    position: relative;
+    left: 62px;
+    top: -50px
+  }
+}
+

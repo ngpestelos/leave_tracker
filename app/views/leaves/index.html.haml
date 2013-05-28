@@ -16,7 +16,7 @@
         = submit_tag "Save", :class => "btn btn-primary"
     #remove_leave{:style => "display:none;"} 
       = form_tag("", :id => "remove_leave_form", :method => "delete") do
-        = submit_tag "Delete", :class => "btn btn-danger"
+        = submit_tag "Delete", :class => "btn btn-danger", :id => "leave_delete_button"
 #calendar
 
 :javascript
