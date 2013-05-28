@@ -17,9 +17,9 @@ window.launch_calendar = (events) ->
       $("#new_leave").show()
       $("#new_leave #date").val(date)
     eventClick: (event) ->
-      $('#leave_modal').modal()
       $("#new_leave").hide()
       if(event.allow_click)
+        $('#leave_modal').modal()
         $("#edit_leave").show()
         $("#remove_leave").show()
         leave_path = "/leaves/#{event.id}"

@@ -5,25 +5,26 @@
     %h3 Leave
   .modal-body
     #remaining_leaves
+      Remaining leaves:
+      %ul
       - @remaining_leaves.each do |d|
-        = d[:description]
-        = d[:left]
+        %li= "#{d[:description]}: #{d[:left]} left" 
     #new_leave{:style => "display:none;"}
       = form_tag(leaves_path, :method => "post") do
         = text_field_tag "date"
         = select_tag(:leave_type, options_for_select(@leave_types))
-        = submit_tag "Save" 
+        = submit_tag "Save", :class => "btn btn-primary"
     #edit_leave{:style => "display:none;"}
       = form_tag("", :id => "edit_leave_form", :method => "put") do
         = text_field_tag "date"
         = select_tag(:leave_type, options_for_select(@leave_types), :id => 'leave_type')
-        = submit_tag "Save"
+        = submit_tag "Save", :class => "btn btn-primary"
     #remove_leave{:style => "display:none;"} 
       = form_tag("", :id => "remove_leave_form", :method => "delete") do
-        = submit_tag "Delete"
+        = submit_tag "Delete", :class => "btn btn-danger"
   .modal-footer
     %a{:href => "#", :class => "btn"}Close
-    %a{:href => "#", :class => "btn btn-primary"}Save changes
+    %a{:href => "#", :class => "btn btn-primary"}Save
 #calendar
 
 :javascript
