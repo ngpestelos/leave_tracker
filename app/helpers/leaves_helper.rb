@@ -40,8 +40,8 @@ module LeavesHelper
 
   def has_remaining_leaves leave_type
     current_count_by_leave_type = current_user.leaves.where(:leave_type_id => leave_type.id).count
-    max_count_by_leave_type = current_user.number_of_leaves_per_types.find(leave_type.id).number
-    current_count_by_leave_type < max_count_by_leave_type
+    max_count_by_leave_type = current_user.number_of_leaves_per_types.find_by_leave_type_id(leave_type.id).number
+    !max_count_by_leave_type.nil? && current_count_by_leave_type < max_count_by_leave_type
   end
 end
 
