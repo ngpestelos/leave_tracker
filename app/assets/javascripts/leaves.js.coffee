@@ -4,13 +4,20 @@
 
 window.launch_calendar = (events) ->
   $('#calendar').fullCalendar({
+    header: {
+      left: null,
+      center: 'title',
+    },
+    height: 800,
     events: events,
     dayClick: (date) ->
+      $('#leave_modal').modal()
       $("#edit_leave").hide()
       $("#remove_leave").hide()
       $("#new_leave").show()
       $("#new_leave #date").val(date)
     eventClick: (event) ->
+      $('#leave_modal').modal()
       $("#new_leave").hide()
       if(event.allow_click)
         $("#edit_leave").show()
