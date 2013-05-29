@@ -11,6 +11,7 @@ LeaveTracker::Application.routes.draw do
   # Users Routes
     resources :users
     get "/users/:id/leaves" => "users#leaves", :as => "user_leaves"
+    put "/users/:id/leaves" => "users#update"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

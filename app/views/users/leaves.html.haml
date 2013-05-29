@@ -1,4 +1,4 @@
-Leave information 
+%h3 Leave information 
 %table{:class => "table table"}
   %thead
     %th Leave Type
@@ -9,4 +9,6 @@ Leave information
         %td
           = leave_type[:description]
         %td
-          = leave_type[:number]
+          %a{:class => "editable_number", :href => "#",
+            :'data-pk' => leave_type[:id]}
+            = leave_type[:number]

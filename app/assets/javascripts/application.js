@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require fullcalendar.min
+//= require bootstrap-editable.min
 //= require bootstrap-datepicker
 //= require_tree .
