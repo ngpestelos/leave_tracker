@@ -1,5 +1,3 @@
-%div{:style => "float:right"}
-  = button_to 'Sign out', destroy_user_session_path, :method => :delete, :class => 'btn btn-success'
 - if current_user.role == "employee"
   = render "employee_modal"
 - elsif current_user.role == "hr"
