@@ -1,26 +1,9 @@
 %div{:style => "float:right"}
   = button_to 'Sign out', destroy_user_session_path, :method => :delete, :class => 'btn btn-success'
-.modal.hide.fade#leave_modal
-  .modal-header
-    %h3
-  .modal-body
-    #new_leave{:style => "display:none;"}
-      = form_tag(leaves_path, :method => "post") do
-        = label_tag "date", "Date"
-        = text_field_tag "date"
-        = label_tag 'leave_type', "Leave Type"
-        = select_tag(:leave_type, options_for_select(@leave_types))
-        = submit_tag "Save", :class => "btn btn-primary"
-    #edit_leave{:style => "display:none;"}
-      = form_tag("", :id => "edit_leave_form", :method => "put") do
-        = label_tag "date", "Date"
-        = text_field_tag "date"
-        = label_tag 'leave_type', "Leave Type"
-        = select_tag(:leave_type, options_for_select(@leave_types), :id => 'leave_type')
-        = submit_tag "Save", :class => "btn btn-primary"
-    #remove_leave{:style => "display:none;"} 
-      = form_tag("", :id => "remove_leave_form", :method => "delete") do
-        = submit_tag "Delete", :class => "btn btn", :id => "leave_delete_button"
+- if current_user.role == "employee"
+  = render "employee_modal"
+- elsif current_user.role == "hr"
+  = render "hr_modal"
 #calendar
 
 :javascript
