@@ -15,8 +15,9 @@ window.launch_calendar = (events) ->
       $("#edit_leave").hide()
       $("#remove_leave").hide()
       $("#new_leave").show()
-      $("#new_leave #date").val(date)
-      $(".modal-header > h3").text(date)
+      date.setDate(date.getDate() + 1) #monkey-patching, default behavior of datepicker displays date a day before (idk why)
+      $("#new_leave #date").datepicker('update', date)
+      $(".modal-header > h3").text("Add leave")
     eventClick: (event) ->
       $("#new_leave").hide()
       if(event.allow_click)
@@ -25,9 +26,10 @@ window.launch_calendar = (events) ->
         $("#remove_leave").show()
         leave_path = "/leaves/#{event.id}"
         $("#edit_leave_form").attr("action", leave_path)
-        $("#edit_leave #date").val(event.start)
-        $(".modal-header > h3").text(event.start)
-        $("#edit_leave #leave_type").val(event.leave_type)
+        event.start.setDate(event.start.getDate() + 1) #monkey-patching, default behavior of datepicker displays date a day before (idk why)
+        $("#edit_leave #date").datepicker('update', event.start)
+        $(".modal-header > h3").text("Edit leave")
+        $("#edit_leave #leave_type").val(event.leave_type_id)
         $("#remove_leave_form").attr("action", leave_path)
       else
         $("#new_leave").hide()

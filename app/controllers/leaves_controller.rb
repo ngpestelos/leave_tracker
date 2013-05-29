@@ -14,7 +14,7 @@ class LeavesController < ApplicationController
   
   def create
     new_leave = current_user.leaves.create(:leave_type_id => params[:leave_type],
-                         :date => params[:date])
+                         :date => Date.strptime(params[:date], "%m/%d/%Y"))
     new_leave.save
     redirect_to leaves_path
   end
@@ -31,7 +31,7 @@ class LeavesController < ApplicationController
     leave = current_user.leaves.find_by_id(params[:id]) 
     unless leave.nil?
       leave.update_attributes(:leave_type_id => params[:leave_type],
-                              :date => params[:date]) 
+                              :date => Date.strptime(params[:date], "%m/%d/%Y")) 
     end
     redirect_to leaves_path
   end

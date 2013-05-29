@@ -6,17 +6,21 @@
   .modal-body
     #new_leave{:style => "display:none;"}
       = form_tag(leaves_path, :method => "post") do
-        = hidden_field_tag "date"
+        = label_tag "date", "Date"
+        = text_field_tag "date"
+        = label_tag 'leave_type', "Leave Type"
         = select_tag(:leave_type, options_for_select(@leave_types))
         = submit_tag "Save", :class => "btn btn-primary"
     #edit_leave{:style => "display:none;"}
       = form_tag("", :id => "edit_leave_form", :method => "put") do
-        = hidden_field_tag "date"
+        = label_tag "date", "Date"
+        = text_field_tag "date"
+        = label_tag 'leave_type', "Leave Type"
         = select_tag(:leave_type, options_for_select(@leave_types), :id => 'leave_type')
         = submit_tag "Save", :class => "btn btn-primary"
     #remove_leave{:style => "display:none;"} 
       = form_tag("", :id => "remove_leave_form", :method => "delete") do
-        = submit_tag "Delete", :class => "btn btn-danger", :id => "leave_delete_button"
+        = submit_tag "Delete", :class => "btn btn", :id => "leave_delete_button"
 #calendar
 
 :javascript
