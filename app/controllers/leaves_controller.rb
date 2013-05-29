@@ -6,7 +6,6 @@ class LeavesController < ApplicationController
       @leaves = Leave.all
       @leaves = format_for_calendar(@leaves).to_json
       @leave_types = get_leave_types 
-      @remaining_leaves = get_remaining_leaves
     else
       redirect_to new_user_session_path 
     end

@@ -20,22 +20,15 @@ module LeavesHelper
 
   def get_leave_types
     leave_types = []
-    current_user.number_of_leaves_per_types.each do |d|
-      if has_remaining_leaves d.leave_type
-        leave_types << [d.leave_type.description, d.leave_type.id] 
-      end
+    current_user.number_of_leaves_per_types.each do |leave_type|
+      left = get_remaining_leaves leave_type 
+      leave_types << ["#{leave_type.leave_type.description} (#{left})", leave_type.leave_type.id] 
     end
     leave_types
   end
 
-  def get_remaining_leaves
-    remaining_leaves = []
-    current_user.number_of_leaves_per_types.each do |d|
-      left = d.number - current_user.leaves.where(:leave_type_id => d.leave_type_id).count
-      description = d.leave_type.description
-      remaining_leaves << {:left => left, :description => description}
-    end
-    remaining_leaves
+  def get_remaining_leaves leave_type
+    left = leave_type.number - current_user.leaves.where(:leave_type_id => leave_type.leave_type_id).count
   end
 
   def has_remaining_leaves leave_type
