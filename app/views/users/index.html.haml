@@ -1,0 +1,16 @@
+%h2 Users
+%table{:class => "table"}
+  %thead
+    %th id
+    %th Email
+    %th
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td 
+          = user.id
+        %td 
+          = user.email
+        %td
+          = link_to "See leaves", user_leaves_path(user.id)
+

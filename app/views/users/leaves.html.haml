@@ -1,0 +1,12 @@
+Leave information 
+%table{:class => "table table"}
+  %thead
+    %th Leave Type
+    %th Number
+  %tbody
+    - @leave_types_display.each do |leave_type|
+      %tr
+        %td
+          = leave_type[:description]
+        %td
+          = leave_type[:number]
