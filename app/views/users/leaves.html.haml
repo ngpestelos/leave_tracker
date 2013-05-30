@@ -12,3 +12,18 @@
           %a{:class => "editable_number", :href => "#",
             :'data-pk' => leave_type[:id]}
             = leave_type[:number]
+%a{:class => "btn launch_modal"} Add leave type
+
+.modal.hide.fade#add_leave_type_modal
+  .modal-header
+    %h3 Add leave type
+  .modal-body
+    - unless @all_leave_types.empty?
+      = form_tag("", :id => "add_leave_to_user_form", :method => "post") do
+        = label_tag 'leave_type', "Leave Type"
+        = select_tag(:leave_type, options_for_select(@all_leave_types))
+        = label_tag 'number', "Number"
+        = number_field_tag(:number, :nil) 
+        = submit_tag "Add", {:class => "btn btn-primary"}
+    - else
+      Added all possible leave types! 

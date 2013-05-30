@@ -10,3 +10,7 @@ jQuery ->
     },
     url: window.location 
   })
+  $(".btn.launch_modal").click(
+    ->
+     $("#add_leave_type_modal").modal() 
+  )
