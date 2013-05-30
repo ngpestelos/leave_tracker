@@ -1,7 +1,16 @@
 class LeaveTypesController < ApplicationController
   
   def index
-    @leave_types = LeaveType.all
+    if user_signed_in?
+      if current_user.role == "hr"
+        @leave_types = LeaveType.all
+      else
+        redirect_to leaves_path
+      end
+    else
+      redirect_to new_user_session_path
+    end
+
   end
   
   def create
