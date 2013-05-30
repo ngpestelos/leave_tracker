@@ -40,4 +40,11 @@ class UsersController < ApplicationController
     redirect_to user_leaves_path(params[:id])
   end
 
+  def destroy
+    user = User.find(params[:id])
+    leave_to_destroy = user.number_of_leaves_per_types.find_by_leave_type_id(params[:pk])
+    leave_to_destroy.destroy
+    redirect_to user_leaves_path(params[:id])
+  end
+
 end

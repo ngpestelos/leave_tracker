@@ -3,6 +3,7 @@
   %thead
     %th Leave Type
     %th Number
+    %th
   %tbody
     - @leave_types_display.each do |leave_type|
       %tr
@@ -12,6 +13,8 @@
           %a{:class => "editable_number", :href => "#",
             :'data-pk' => leave_type[:id]}
             = leave_type[:number]
+        %td
+          = button_to "Delete", user_leaves_delete_path(:pk => leave_type[:id]), :method => "delete", :class => "btn"
 %a{:class => "btn launch_modal"} Add leave type
 
 .modal.hide.fade#add_leave_type_modal
