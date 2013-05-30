@@ -1,0 +1,20 @@
+%h2 Leave Types 
+%table{:class => "table"}
+  %thead
+    %th Type 
+  %tbody
+    - @leave_types.each do |leave_type|
+      %tr
+        %td 
+          = leave_type.description 
+
+%a{:id => "add_leave_type", :class => "btn"}Add Leave Type 
+
+.modal.hide.fade#add_leave_type_modal
+  .modal-header
+    %h3 Add Leave Type
+  .modal-body
+    = form_tag(leave_types_path, :method => "post") do
+      = label_tag "description", "Description"
+      = text_field_tag "description"
+      = submit_tag "Save", :class => "btn btn-primary"
