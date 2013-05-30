@@ -17,6 +17,7 @@ LeaveTracker::Application.routes.draw do
   # Leave Types routes
     get "/leave_types/" => "leave_types#index"
     post "/leave_types/" => "leave_types#create"
+    delete "/leave_types/:id" => "leave_types#destroy", :as => "leave_types_delete"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -10,4 +10,10 @@ class LeaveTypesController < ApplicationController
     redirect_to leave_types_path
   end
 
+  def destroy
+    leave_type_to_delete = LeaveType.find(params[:id])
+    leave_type_to_delete.destroy!
+    redirect_to leave_types_path
+  end
+
 end

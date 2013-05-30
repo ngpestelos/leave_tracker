@@ -2,11 +2,14 @@
 %table{:class => "table"}
   %thead
     %th Type 
+    %th
   %tbody
     - @leave_types.each do |leave_type|
       %tr
         %td 
           = leave_type.description 
+        %td
+          = button_to "Delete", leave_types_delete_path(leave_type.id), :method => "delete", :class => "btn"
 
 %a{:id => "add_leave_type", :class => "btn"}Add Leave Type 
 
