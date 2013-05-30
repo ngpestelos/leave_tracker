@@ -13,9 +13,11 @@
 <% unless alert.nil? %>
 <p class="alert alert-error"><%= alert %></p>
 <% end %>
+<% if user_signed_in? %>
 <div style="float:right">
   <%= button_to 'Sign out', destroy_user_session_path, :method => :delete, :class => 'btn btn-success' %>
 </div>
+<% end %>
 <%= yield %>
 
 </body>
