@@ -35,7 +35,7 @@ class LeavesController < ApplicationController
       leave = current_user.leaves.find_by_id(params[:id]) 
       unless leave.nil?
         leave.update_attributes(:leave_type_id => params[:leave_type],
-                              :date => Date.strptime(params[:date], "%m/%d/%Y")) 
+                              :date => Date.strptime(params[:date], "%m/%d/%Y"), :is_approved => nil) 
       end
     elsif current_user.role == "hr"
       leave = Leave.find_by_id(params[:id])

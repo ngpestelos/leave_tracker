@@ -1,7 +1,8 @@
 .modal.hide.fade#hr_leave_modal
   .modal-header
     %h3
-  .modal-body
+  .modal-body#approve_leave
+    %h4
     Approve leave? 
     = form_tag("", :id => "edit_leave_form", :method => "put") do
       = hidden_field_tag "is_approved", 1 

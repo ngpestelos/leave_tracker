@@ -29,6 +29,12 @@ window.launch_calendar = (events) ->
         $("#edit_leave_form").attr("action", leave_path)
         event.start.setDate(event.start.getDate() + 1) #monkey-patching, default behavior of datepicker displays date a day before (idk why)
         $("#edit_leave #date").datepicker('update', event.start)
+        if(event.is_approved == null)
+          $("#edit_leave h4").text("Status: Unapproved")
+          $("#approve_leave h4").text("Status: Unapproved")
+        else
+          $("#approve_leave h4").text("Status: Approved") 
+          $("#edit_leave h4").text("Status: Approved")
         $(".modal-header > h3").text("Edit leave")
         $("#edit_leave #leave_type").val(event.leave_type_id)
         $("#remove_leave_form").attr("action", leave_path)

@@ -10,7 +10,8 @@ module LeavesHelper
           :title => "#{leave.user.email} -- #{description}",
           :leave_type_id => leave[:leave_type_id],
           :id => leave[:id],
-          :allow_click => leave.user.id == current_user.id || current_user.role == "hr" ? true : false
+          :allow_click => leave.user.id == current_user.id || current_user.role == "hr" ? true : false,
+          :is_approved => leave[:is_approved]
         } if leave.is_a? Leave
         formatted_leaves << formatted_leave
       end

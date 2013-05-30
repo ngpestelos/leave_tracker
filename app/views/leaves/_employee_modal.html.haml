@@ -11,6 +11,7 @@
           = select_tag(:leave_type, options_for_select(@leave_types))
           = submit_tag "Save", :class => "btn btn-primary"
       #edit_leave{:style => "display:none;"}
+        %h4 
         = form_tag("", :id => "edit_leave_form", :method => "put") do
           = label_tag "date", "Date"
           = text_field_tag "date"
